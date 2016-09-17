@@ -1,6 +1,8 @@
 
 import {LDAPResult} from '../messages/index';
 
+export * from './codes';
+
 export class LDAPError {
     code: number;
     name: string;
