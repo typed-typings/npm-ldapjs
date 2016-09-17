@@ -19,6 +19,7 @@ export {parse as parseURL} from './url';
 import * as filters from './filters/index';
 export {filters};
 export {
+    Filter,
     parseString as parseFilter,
     AndFilter,
     ApproximateFilter,
