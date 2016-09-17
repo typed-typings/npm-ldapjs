@@ -1,0 +1,9 @@
+{
+  "name": "ldapjs",
+  "version": "1.0.0",
+  "homepage": "https://github.com/types/npm-ldapjs",
+  "main": "lib/index.d.ts",
+  "globalDependencies": {
+    "node": "registry:env/node#6.0.0+20160902022231"
+  }
+}
