@@ -241,7 +241,7 @@ declare class Client extends EventEmitter {
      * @param {Function} callback of the form f(err).
      * @throws {TypeError} if you pass in callback as not a function.
      */
-    unbind(callback: (err?: any) => any): any;
+    unbind(callback?: (err?: any) => any): any;
 
     /**
      * Attempt to secure connection with StartTLS.
