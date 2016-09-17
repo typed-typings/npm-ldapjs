@@ -1,5 +1,4 @@
 
-
 export interface Filter {
     toBer(ber: any): any;
     matches(value: any): boolean;
