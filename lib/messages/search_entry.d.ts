@@ -3,7 +3,7 @@ import LDAPMessage = require('./message');
 
 declare class SearchEntry extends LDAPMessage {
     type: 'SearchEntry';
-    object: Object;
+    object: { [attribute: string]: any };
     raw: any;
     constructor(options: Object);
 }
