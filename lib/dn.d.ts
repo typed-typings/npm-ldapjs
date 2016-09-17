@@ -1,5 +1,12 @@
 
+export interface RDNAttribute {
+    name: string;
+    order: number;
+    value: string;
+}
+
 export class RDN {
+    attrs: { [attribute: string]: RDNAttribute };
     constructor(obj: Object);
 }
 
@@ -53,6 +60,9 @@ export interface FormatOptions extends FormatPreservationOptions, FormatModifica
  * APIs are setup to give you a DN object.
  */
 export class DN {
+
+    rdns: RDN[];
+
     constructor(rdns: Object);
     /**
      * Returns a boolean indicating whether 'this' is a child of the passed in dn.
