@@ -2,6 +2,7 @@
 import LDAPMessage = require('./message');
 
 declare class LDAPResult extends LDAPMessage {
+    status: number;
     /**
      * All response objects will have an end method on them. By default, calling
      * res.end() with no arguments will return SUCCESS (0x00) to the client (with the
