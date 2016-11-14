@@ -1,6 +1,6 @@
 
 import {EventEmitter} from 'events';
-import {TlsOptions} from 'tls';
+import {TLSSocketOptions} from 'tls';
 import {Control} from '../controls/index';
 import {Filter} from '../filters/index';
 import {LDAPResult} from '../messages/index';
@@ -38,7 +38,7 @@ declare namespace Client {
         /**
          * Additional options passed to TLS connection layer when connecting via ldaps:// (See: The TLS docs for node.js)
          */
-        tlsOptions?: TlsOptions;
+        tlsOptions?: TLSSocketOptions;
 
         /**
          * Milliseconds after last activity before client emits idle event
@@ -246,8 +246,8 @@ declare class Client extends EventEmitter {
     /**
      * Attempt to secure connection with StartTLS.
      */
-    starttls(options: TlsOptions, callback: (err?: any) => any): any;
-    starttls(options: TlsOptions, controls: Control | Control[], callback: (err?: any) => any): any;
+    starttls(options: TLSSocketOptions, callback: (err?: any) => any): any;
+    starttls(options: TLSSocketOptions, controls: Control | Control[], callback: (err?: any) => any): any;
 
     /**
      * Initiate LDAP connection.
