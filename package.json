@@ -10,7 +10,7 @@
   "author": "Felix Becker <felix.b@outlook.com>",
   "license": "ISC",
   "devDependencies": {
-    "tslint": "^3.13.0",
+    "tslint": "^4.0.1",
     "typescript": "^2.0.9",
     "typings": "^2.0.0"
   }
