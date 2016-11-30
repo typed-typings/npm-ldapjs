@@ -9,6 +9,7 @@
   },
   "author": "Felix Becker <felix.b@outlook.com>",
   "license": "ISC",
+  "types": "./lib/index.d.ts",
   "devDependencies": {
     "tslint": "^4.0.2",
     "typescript": "^2.0.9",
