@@ -37,7 +37,7 @@ export {
     // AbandonResponse,
     SearchEntry,
     // AddRequest,
-    SearchRequest,
+    SearchRequest
     // AddResponse,
     // ModifyDNResponse,
     // BindRequest,
@@ -51,4 +51,4 @@ export {
     // DeleteRequest,
     // ExtendedRequest,
     // DeleteResponse
-}
+};
