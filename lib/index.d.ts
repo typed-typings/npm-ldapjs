@@ -1,6 +1,6 @@
 
 // Client
-export {Client, createClient} from './client/index'
+export {Client, createClient} from './client/index';
 
 // Server
 import Server = require('./server');
@@ -31,7 +31,7 @@ export {
     OrFilter,
     PresenceFilter,
     SubstringFilter
-} from './filters/index'
+} from './filters/index';
 
 // persistentSearch
 // PersistentSearchCache
@@ -42,15 +42,15 @@ export {Attribute};
 
 // Change
 import Change = require('./change');
-export {Change}
+export {Change};
 
 // Controls
-export * from './controls/index'
+export * from './controls/index';
 
 // messages
-export * from './messages/index'
+export * from './messages/index';
 
 // errors
-export * from './errors/index'
+export * from './errors/index';
 
 // export * from './Protocol'
