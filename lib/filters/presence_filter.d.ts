@@ -12,9 +12,12 @@ export interface PresenceFilterOptions {
  * method will return true IFF the passed in object has a key matching attribute.
  */
 export class PresenceFilter implements Filter {
-    name: 'present';
+    type: "present";
+    json: any;
     attribute: string;
     toBer(ber: any): any;
-    matches(value: any): boolean;
+    matches(value: any, strictAttrCase?: boolean): boolean;
+    parse(ber: any): true;
+    toString(): string;
     constructor(options: PresenceFilterOptions);
 }

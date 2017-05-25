@@ -9,6 +9,8 @@ export function parseString(str: string): Filter;
 
 export function parse(ber: any): Filter;
 
+export function isFilter(filter: any): boolean;
+
 export * from './and_filter';
 export * from './approx_filter';
 export * from './equality_filter';

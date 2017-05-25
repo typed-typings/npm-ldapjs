@@ -16,10 +16,13 @@ export interface GreaterThanEqualsFilterOptions {
  * attribute property, a value property and the name property will be ge.
  */
 export class GreaterThanEqualsFilter implements Filter {
-    name: 'gt';
+    type: "ge";
     attribute: string;
     value: string;
+    json: any;
     toBer(ber: any): any;
     matches(value: any): boolean;
+    parse(ber: any): true;
+    toString(): string;
     constructor(options: GreaterThanEqualsFilterOptions);
 }

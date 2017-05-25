@@ -2,7 +2,7 @@
 import {Filter} from './filter';
 
 export interface NotFilterOptions {
-    filters: Filter[];
+    filter: Filter;
 }
 
 /**
@@ -11,13 +11,15 @@ export interface NotFilterOptions {
  * name property will be not.
  */
 export class NotFilter implements Filter {
-    name: 'not';
-    filters: Filter[];
+    type: "not";
+    json: any;
+    filter: Filter;
     constructor(options: NotFilterOptions);
     toBer(ber: any): any;
     /**
      * The matches() method will return true IFF the passed in object does not match
      * the filter in the filter property.
      */
-    matches(value: any): boolean;
+    matches(value: any, strictAttrCase?: boolean): boolean;
+    setFilter(filter: Filter): void;
 }
