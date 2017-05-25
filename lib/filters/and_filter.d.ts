@@ -12,7 +12,7 @@ export interface AndFilterOptions {
  */
 export class AndFilter implements Filter {
     filters: Filter[];
-    type: "and";
+    type: 'and';
     json: any;
     toString(): string;
     toBer(ber: any): any;

@@ -3,7 +3,7 @@ import {EventEmitter} from 'events';
 import {TLSSocketOptions} from 'tls';
 import {Control} from '../controls/index';
 import {Filter} from '../filters/index';
-import {LDAPError} from "../errors/index";
+import {LDAPError} from '../errors/index';
 import {LDAPResult, SearchEntry} from '../messages/index';
 import Change = require('../change');
 
@@ -109,10 +109,10 @@ declare namespace Client {
         on(ev: string, callback: (err: LDAPError) => void): this;
         on(ev: string, callback: (result: SearchResult) => void): this;
 
-        on(ev: "searchEntry", callback: (entry: SearchEntry) => void): this;
-        on(ev: "searchReference", callback: (referral: any) => void): this;
-        on(ev: "error", callback: (err: LDAPError) => void): this;
-        on(ev: "end", callback: (result: SearchResult) => void): this;
+        on(ev: 'searchEntry', callback: (entry: SearchEntry) => void): this;
+        on(ev: 'searchReference', callback: (referral: any) => void): this;
+        on(ev: 'error', callback: (err: LDAPError) => void): this;
+        on(ev: 'end', callback: (result: SearchResult) => void): this;
     }
 }
 

@@ -22,8 +22,8 @@ import {
     SearchResponse
 } from './messages/index';
 
-import { DN } from "./dn";
-import * as net from "net";
+import { DN } from './dn';
+import * as net from 'net';
 
 declare namespace Server {
 

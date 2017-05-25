@@ -11,7 +11,7 @@ export interface OrFilterOptions {
  * property will be or.
  */
 export class OrFilter implements Filter {
-    type: "or";
+    type: 'or';
     json: any;
     filters: Filter[];
     constructor(options: OrFilterOptions);

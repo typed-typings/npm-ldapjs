@@ -15,7 +15,7 @@ export interface ApproximateFilterOptions {
  * equality filter is (attr~=value).
  */
 export class ApproximateFilter implements Filter {
-    type: "approx";
+    type: 'approx';
     attribute: string;
     value: string;
     constructor(options: ApproximateFilterOptions);

@@ -16,7 +16,7 @@ export interface GreaterThanEqualsFilterOptions {
  * attribute property, a value property and the name property will be ge.
  */
 export class GreaterThanEqualsFilter implements Filter {
-    type: "ge";
+    type: 'ge';
     attribute: string;
     value: string;
     json: any;

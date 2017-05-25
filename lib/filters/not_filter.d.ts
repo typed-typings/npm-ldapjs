@@ -11,7 +11,7 @@ export interface NotFilterOptions {
  * name property will be not.
  */
 export class NotFilter implements Filter {
-    type: "not";
+    type: 'not';
     json: any;
     filter: Filter;
     constructor(options: NotFilterOptions);

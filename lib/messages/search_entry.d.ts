@@ -1,6 +1,6 @@
 
 import LDAPMessage = require('./message');
-import Attribute = require("../attribute");
+import Attribute = require('../attribute');
 
 declare class SearchEntry extends LDAPMessage {
     type: 'SearchEntry';

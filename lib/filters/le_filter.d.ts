@@ -15,7 +15,7 @@ export interface LessThanEqualsFilterOptions {
  * ldapjs schema middleware will do this.
  */
 export class LessThanEqualsFilter implements Filter {
-    type: "le";
+    type: 'le';
     attribute: string;
     value: string;
     json: any;

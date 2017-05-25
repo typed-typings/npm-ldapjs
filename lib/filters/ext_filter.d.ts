@@ -14,7 +14,7 @@ export interface ExtensibleFilterOptions {
  * class exists only for the client to send them.
  */
 export class ExtensibleFilter implements Filter {
-    type: "ext";
+    type: 'ext';
     json: any;
     matchingRule: string;
     matchValue: string;

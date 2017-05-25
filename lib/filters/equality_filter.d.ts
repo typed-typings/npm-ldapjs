@@ -19,7 +19,7 @@ export interface EqualityFilterOptions {
  * transforms values of objects.
  */
 export class EqualityFilter implements Filter {
-    type: "equal";
+    type: 'equal';
     attribute: string;
     value: string;
     json: any;

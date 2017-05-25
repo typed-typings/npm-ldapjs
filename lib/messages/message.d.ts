@@ -1,7 +1,7 @@
 
 import {Control} from '../controls/index';
 import {DN} from '../dn';
-import { LDAPSocket } from "../server";
+import { LDAPSocket } from '../server';
 
 declare class LDAPMessage {
 
