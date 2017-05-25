@@ -9,7 +9,7 @@ declare class LDAPResult extends LDAPMessage {
      * exception of compare which will return COMPARE_TRUE (0x06)). You can pass in a
      * status code to the end() method to return an alternate status code.
      */
-    end(): void;
+    end(code?: number): void;
 }
 
 export = LDAPResult;
