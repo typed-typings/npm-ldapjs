@@ -15,10 +15,14 @@ export interface LessThanEqualsFilterOptions {
  * ldapjs schema middleware will do this.
  */
 export class LessThanEqualsFilter implements Filter {
-    name: 'le';
+    type: 'le';
     attribute: string;
     value: string;
+    json: any;
     toBer(ber: any): any;
-    matches(value: any): boolean;
+    matches(value: any, strictAttrCase?: boolean): boolean;
+    parse(ber: any): true;
+    toString(): string;
+
     constructor(options: LessThanEqualsFilterOptions);
 }

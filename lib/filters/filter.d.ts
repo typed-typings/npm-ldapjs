@@ -1,5 +1,6 @@
 
 export interface Filter {
+    type?: string;
     toBer(ber: any): any;
     matches(value: any): boolean;
 }

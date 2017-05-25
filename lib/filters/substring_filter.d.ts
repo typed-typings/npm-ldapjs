@@ -17,7 +17,11 @@ export interface SubstringFilterOptions {
  * will be substring.
  */
 export class SubstringFilter implements Filter {
+    type: 'substring';
+    json: any;
     toBer(ber: any): any;
-    matches(value: any): boolean;
+    matches(value: any, strictAttrCase?: boolean): boolean;
+    parse(ber: any): true;
+    toString(): string;
     constructor(options: SubstringFilterOptions);
 }

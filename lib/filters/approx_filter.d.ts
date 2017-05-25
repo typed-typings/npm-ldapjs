@@ -15,14 +15,18 @@ export interface ApproximateFilterOptions {
  * equality filter is (attr~=value).
  */
 export class ApproximateFilter implements Filter {
-    name: 'not';
+    type: 'approx';
     attribute: string;
     value: string;
     constructor(options: ApproximateFilterOptions);
     toBer(ber: any): any;
+    parse(ber: any): true;
+    json(): any;
+    toString(): string;
+    matches(): any;
     /**
      * The matches() method will return true IFF the passed in object has a key
      * matching attribute and a value exactly matching value.
      */
-    matches(value: any): boolean;
+    matches(value: any, strictAttrCase?: boolean): boolean;
 }

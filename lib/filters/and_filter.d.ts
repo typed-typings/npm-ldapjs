@@ -11,9 +11,12 @@ export interface AndFilterOptions {
  * property will be and.
  */
 export class AndFilter implements Filter {
-    name: 'and';
     filters: Filter[];
+    type: 'and';
+    json: any;
+    toString(): string;
     toBer(ber: any): any;
-    matches(value: any): boolean;
+    matches(value: any, strictAttrCase?: boolean): boolean;
+    addFilter(filter: Filter): void;
     constructor(options: AndFilterOptions);
 }

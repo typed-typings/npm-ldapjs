@@ -1,7 +1,7 @@
 
-import {Socket} from 'net';
 import {Control} from '../controls/index';
 import {DN} from '../dn';
+import { LDAPSocket } from '../server';
 
 declare class LDAPMessage {
 
@@ -43,7 +43,10 @@ declare class LDAPMessage {
      * All request objects will have a connection object, which is the net.Socket
      * associated to this request. Off the connection object is an ldap object.
      */
-    connection: Socket;
+    connection: LDAPSocket;
+
+    messageID: number;
+    credentials: string;
 
     toString(): string;
     parse(ber: any): boolean;

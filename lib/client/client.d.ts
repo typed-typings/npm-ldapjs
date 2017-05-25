@@ -3,7 +3,8 @@ import {EventEmitter} from 'events';
 import {TLSSocketOptions} from 'tls';
 import {Control} from '../controls/index';
 import {Filter} from '../filters/index';
-import {LDAPResult} from '../messages/index';
+import {LDAPError} from '../errors/index';
+import {LDAPResult, SearchEntry} from '../messages/index';
 import Change = require('../change');
 
 declare namespace Client {
@@ -51,6 +52,11 @@ declare namespace Client {
         strictDN?: boolean;
     }
 
+    export interface Paging {
+        pagesize?: number;
+        pagePause?: boolean;
+    }
+
     export interface SearchOptions {
         /**
          * One of base, one, or sub. Defaults to base.
@@ -89,7 +95,24 @@ declare namespace Client {
         /**
          * enable and/or configure automatic result paging
          */
-        paging?: boolean;
+        paged?: boolean | Paging;
+    }
+
+    export interface SearchResult {
+        status: number;
+        controls: Control[];
+    }
+
+    export interface SearchResponseEmitter extends EventEmitter {
+        on(ev: string, callback: (entry: SearchEntry) => void): this;
+        on(ev: string, callback: (referral: any) => void): this;
+        on(ev: string, callback: (err: LDAPError) => void): this;
+        on(ev: string, callback: (result: SearchResult) => void): this;
+
+        on(ev: 'searchEntry', callback: (entry: SearchEntry) => void): this;
+        on(ev: 'searchReference', callback: (referral: any) => void): this;
+        on(ev: 'error', callback: (err: LDAPError) => void): this;
+        on(ev: 'end', callback: (result: SearchResult) => void): this;
     }
 }
 
@@ -229,8 +252,8 @@ declare class Client extends EventEmitter {
      * @param {Function} callback of the form f(err, res).
      * @throws {TypeError} on invalid input.
      */
-    search(base: string, options: Client.SearchOptions, callback: (err?: any, res?: EventEmitter) => any): any;
-    search(base: string, options: Client.SearchOptions, controls: Control | Control[], callback: (err?: any, res?: EventEmitter) => any): any;
+    search(base: string, options: Client.SearchOptions, callback: (err?: any, res?: Client.SearchResponseEmitter) => any): any;
+    search(base: string, options: Client.SearchOptions, controls: Control | Control[], callback: (err?: any, res?: Client.SearchResponseEmitter) => any): any;
 
     /**
      * Unbinds this client from the LDAP server.
@@ -265,7 +288,7 @@ declare class Client extends EventEmitter {
      *
      * @param {Object} err (Optional) error that was cause of client destruction
      */
-    destroy(err: any): any;
+    destroy(err?: any): any;
 }
 
 export = Client;

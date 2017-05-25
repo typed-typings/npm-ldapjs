@@ -11,7 +11,8 @@ export interface OrFilterOptions {
  * property will be or.
  */
 export class OrFilter implements Filter {
-    name: 'or';
+    type: 'or';
+    json: any;
     filters: Filter[];
     constructor(options: OrFilterOptions);
     toBer(ber: any): any;
@@ -19,5 +20,7 @@ export class OrFilter implements Filter {
      * The matches() method will return true IFF the passed in object matches any of
      * the filters in the filters array.
      */
-    matches(value: any): boolean;
+    matches(value: any, strictAttrCase?: boolean): boolean;
+    toString(): string;
+    addFilter(filter: Filter): void;
 }

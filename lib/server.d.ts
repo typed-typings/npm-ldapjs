@@ -1,8 +1,29 @@
 
 import {
+    LDAPMessage,
+    LDAPResult,
+    AddRequest,
+    AddResponse,
+    CompareRequest,
+    CompareResponse,
+    DeleteRequest,
+    DeleteResponse,
+    ExtendedRequest,
+    ExtendedResponse,
+    ModifyRequest,
+    ModifyResponse,
+    ModifyDNRequest,
+    ModifyDNResponse,
+    BindRequest,
+    BindResponse,
+    UnbindRequest,
+    UnbindResponse,
     SearchRequest,
     SearchResponse
 } from './messages/index';
+
+import { DN } from './dn';
+import * as net from 'net';
 
 declare namespace Server {
 
@@ -27,6 +48,36 @@ declare namespace Server {
     export interface NextFunction {
         (err?: any): void;
     }
+
+    export interface LDAP {
+        id: string;
+        config: ServerOptions;
+        bindDN: DN;
+    }
+
+    export interface LDAPSocket extends net.Socket {
+        ldap: LDAP;
+    }
+
+    export type MessageHandler = (req: LDAPMessage, res: LDAPResult, next: Server.NextFunction[] | NextFunction) => void;
+
+    export type BindHandler = (req: BindRequest, res: BindResponse, next: Server.NextFunction[] | NextFunction) => void;
+
+    export type AddHandler = (req: AddRequest, res: AddResponse, next: Server.NextFunction[] | NextFunction) => void;
+
+    export type CompareHandler = (req: CompareRequest, res: CompareResponse, next: Server.NextFunction[] | NextFunction) => void;
+
+    export type DelHandler = (req: DeleteRequest, res: DeleteResponse, next: Server.NextFunction[] | NextFunction) => void;
+
+    export type ExopHandler = (req: ExtendedRequest, res: ExtendedResponse, next: Server.NextFunction[] | NextFunction) => void;
+
+    export type ModifyHandler = (req: ModifyRequest, res: ModifyResponse, next: Server.NextFunction[] | NextFunction) => void;
+
+    export type ModifyDnHandler = (req: ModifyDNRequest, res: ModifyDNResponse, next: Server.NextFunction[] | NextFunction) => void;
+
+    export type UnbindHandler = (req: UnbindRequest, res: UnbindResponse, next: Server.NextFunction[] | NextFunction) => void;
+
+    export type SearchHandler = (req: SearchRequest, res: SearchResponse, next: Server.NextFunction[] | NextFunction) => void;
 }
 
 declare class Server {
@@ -73,15 +124,19 @@ declare class Server {
      */
     listenFD(fd: any): void;
 
-    bind(dn: string, handler: (req: any, res: any, next: Server.NextFunction) => any): this;
-    add(dn: string, handler: (req: any, res: any, next: Server.NextFunction) => any): this;
-    search(dn: string, handler: (req: SearchRequest, res: SearchResponse, next: Server.NextFunction) => any): this;
-    modify(dn: string, handler: (req: any, res: any, next: Server.NextFunction) => any): this;
-    del(dn: string, handler: (req: any, res: any, next: Server.NextFunction) => any): this;
-    compare(dn: string, handler: (req: any, res: any, next: Server.NextFunction) => any): this;
-    modifyDN(dn: string, handler: (req: any, res: any, next: Server.NextFunction) => any): this;
-    exop(oid: string, handler: (req: any, res: any, next: Server.NextFunction) => any): this;
-    unbind(handler: (req: any, res: any, next: Server.NextFunction) => any): this;
+    use(callback: Server.MessageHandler): void;
+
+    after(callback: Server.MessageHandler): void;
+
+    bind(dn: string, ...handlers: Server.BindHandler[]): this;
+    add(dn: string, ...handlers: Server.AddHandler[]): this;
+    search(dn: string, ...handlers: Server.SearchHandler[]): this;
+    modify(dn: string, ...handlers: Server.ModifyHandler[]): this;
+    del(dn: string, ...handlers: Server.DelHandler[]): this;
+    compare(dn: string, ...handlers: Server.CompareHandler[]): this;
+    modifyDN(dn: string, ...handlers: Server.ModifyDnHandler[]): this;
+    exop(oid: string, ...handlers: Server.ExopHandler[]): this;
+    unbind(handler: Server.UnbindHandler): this;
 }
 
 export = Server;
