@@ -1,4 +1,4 @@
-import LDAPResult = require('.//result');
+import LDAPResult = require('./result');
 
 declare class BindResponse extends LDAPResult { }
 
