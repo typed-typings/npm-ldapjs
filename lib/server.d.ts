@@ -49,6 +49,9 @@ declare namespace Server {
         (err?: any): void;
     }
 
+    // export type NextHandler = Server.NextFunction[] | NextFunction
+    export type NextHandler = NextFunction
+
     export interface LDAP {
         id: string;
         config: ServerOptions;
@@ -59,25 +62,25 @@ declare namespace Server {
         ldap: LDAP;
     }
 
-    export type MessageHandler = (req: LDAPMessage, res: LDAPResult, next: Server.NextFunction[] | NextFunction) => void;
+    export type MessageHandler = (req: LDAPMessage, res: LDAPResult, next: NextHandler) => void;
 
-    export type BindHandler = (req: BindRequest, res: BindResponse, next: Server.NextFunction[] | NextFunction) => void;
+    export type BindHandler = (req: BindRequest, res: BindResponse, next: NextHandler) => void;
 
-    export type AddHandler = (req: AddRequest, res: AddResponse, next: Server.NextFunction[] | NextFunction) => void;
+    export type AddHandler = (req: AddRequest, res: AddResponse, next: NextHandler) => void;
 
-    export type CompareHandler = (req: CompareRequest, res: CompareResponse, next: Server.NextFunction[] | NextFunction) => void;
+    export type CompareHandler = (req: CompareRequest, res: CompareResponse, next: NextHandler) => void;
 
-    export type DelHandler = (req: DeleteRequest, res: DeleteResponse, next: Server.NextFunction[] | NextFunction) => void;
+    export type DelHandler = (req: DeleteRequest, res: DeleteResponse, next: NextHandler) => void;
 
-    export type ExopHandler = (req: ExtendedRequest, res: ExtendedResponse, next: Server.NextFunction[] | NextFunction) => void;
+    export type ExopHandler = (req: ExtendedRequest, res: ExtendedResponse, next: NextHandler) => void;
 
-    export type ModifyHandler = (req: ModifyRequest, res: ModifyResponse, next: Server.NextFunction[] | NextFunction) => void;
+    export type ModifyHandler = (req: ModifyRequest, res: ModifyResponse, next: NextHandler) => void;
 
-    export type ModifyDnHandler = (req: ModifyDNRequest, res: ModifyDNResponse, next: Server.NextFunction[] | NextFunction) => void;
+    export type ModifyDnHandler = (req: ModifyDNRequest, res: ModifyDNResponse, next: NextHandler) => void;
 
-    export type UnbindHandler = (req: UnbindRequest, res: UnbindResponse, next: Server.NextFunction[] | NextFunction) => void;
+    export type UnbindHandler = (req: UnbindRequest, res: UnbindResponse, next: NextHandler) => void;
 
-    export type SearchHandler = (req: SearchRequest, res: SearchResponse, next: Server.NextFunction[] | NextFunction) => void;
+    export type SearchHandler = (req: SearchRequest, res: SearchResponse, next: NextHandler) => void;
 }
 
 declare class Server {
