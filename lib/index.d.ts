@@ -5,7 +5,7 @@ export {Client, createClient} from './client/index';
 // Server
 import Server = require('./server');
 export {Server};
-export function createServer(options: Server.ServerOptions): Server;
+export function createServer(options?: Server.ServerOptions): Server;
 
 // dn
 import * as dn from './dn';
