@@ -13,46 +13,50 @@ export class LDAPError {
 
 export function getError(res: LDAPResult): LDAPError;
 
-export class OperationsError extends LDAPError { }
-export class ProtocolError extends LDAPError { }
-export class TimeLimitExceededError extends LDAPError { }
-export class SizeLimitExceededError extends LDAPError { }
-export class CompareFalseError extends LDAPError { }
-export class CompareTrueError extends LDAPError { }
-export class AuthMethodNotSupportedError extends LDAPError { }
-export class StrongAuthRequiredError extends LDAPError { }
-export class ReferralError extends LDAPError { }
-export class AdminLimitExceededError extends LDAPError { }
-export class UnavailableCriticalExtensionError extends LDAPError { }
-export class ConfidentialityRequiredError extends LDAPError { }
-export class SaslBindInProgressError extends LDAPError { }
-export class NoSuchAttributeError extends LDAPError { }
-export class UndefinedAttributeTypeError extends LDAPError { }
-export class InappropriateMatchingError extends LDAPError { }
-export class ConstraintViolationError extends LDAPError { }
-export class AttributeOrValueExistsError extends LDAPError { }
-export class InvalidAttriubteSyntaxError extends LDAPError { }
-export class NoSuchObjectError extends LDAPError { }
-export class AliasProblemError extends LDAPError { }
-export class InvalidDnSyntaxError extends LDAPError { }
-export class AliasDerefProblemError extends LDAPError { }
-export class InappropriateAuthenticationError extends LDAPError { }
-export class InvalidCredentialsError extends LDAPError { }
-export class InsufficientAccessRightsError extends LDAPError { }
-export class BusyError extends LDAPError { }
-export class UnavailableError extends LDAPError { }
-export class UnwillingToPerformError extends LDAPError { }
-export class LoopDetectError extends LDAPError { }
-export class NamingViolationError extends LDAPError { }
-export class ObjectclassViolationError extends LDAPError { }
-export class NotAllowedOnNonLeafError extends LDAPError { }
-export class NotAllowedOnRdnError extends LDAPError { }
-export class EntryAlreadyExistsError extends LDAPError { }
-export class ObjectclassModsProhibitedError extends LDAPError { }
-export class AffectsMultipleDsasError extends LDAPError { }
-export class OtherError extends LDAPError { }
+declare class LDAPErrorExtend extends LDAPError {
+    constructor(message?: string, dn?: string, caller?: any);
+}
+
+export class OperationsError extends LDAPErrorExtend { }
+export class ProtocolError extends LDAPErrorExtend { }
+export class TimeLimitExceededError extends LDAPErrorExtend { }
+export class SizeLimitExceededError extends LDAPErrorExtend { }
+export class CompareFalseError extends LDAPErrorExtend { }
+export class CompareTrueError extends LDAPErrorExtend { }
+export class AuthMethodNotSupportedError extends LDAPErrorExtend { }
+export class StrongAuthRequiredError extends LDAPErrorExtend { }
+export class ReferralError extends LDAPErrorExtend { }
+export class AdminLimitExceededError extends LDAPErrorExtend { }
+export class UnavailableCriticalExtensionError extends LDAPErrorExtend { }
+export class ConfidentialityRequiredError extends LDAPErrorExtend { }
+export class SaslBindInProgressError extends LDAPErrorExtend { }
+export class NoSuchAttributeError extends LDAPErrorExtend { }
+export class UndefinedAttributeTypeError extends LDAPErrorExtend { }
+export class InappropriateMatchingError extends LDAPErrorExtend { }
+export class ConstraintViolationError extends LDAPErrorExtend { }
+export class AttributeOrValueExistsError extends LDAPErrorExtend { }
+export class InvalidAttriubteSyntaxError extends LDAPErrorExtend { }
+export class NoSuchObjectError extends LDAPErrorExtend { }
+export class AliasProblemError extends LDAPErrorExtend { }
+export class InvalidDnSyntaxError extends LDAPErrorExtend { }
+export class AliasDerefProblemError extends LDAPErrorExtend { }
+export class InappropriateAuthenticationError extends LDAPErrorExtend { }
+export class InvalidCredentialsError extends LDAPErrorExtend { }
+export class InsufficientAccessRightsError extends LDAPErrorExtend { }
+export class BusyError extends LDAPErrorExtend { }
+export class UnavailableError extends LDAPErrorExtend { }
+export class UnwillingToPerformError extends LDAPErrorExtend { }
+export class LoopDetectError extends LDAPErrorExtend { }
+export class NamingViolationError extends LDAPErrorExtend { }
+export class ObjectclassViolationError extends LDAPErrorExtend { }
+export class NotAllowedOnNonLeafError extends LDAPErrorExtend { }
+export class NotAllowedOnRdnError extends LDAPErrorExtend { }
+export class EntryAlreadyExistsError extends LDAPErrorExtend { }
+export class ObjectclassModsProhibitedError extends LDAPErrorExtend { }
+export class AffectsMultipleDsasError extends LDAPErrorExtend { }
+export class OtherError extends LDAPErrorExtend { }
 
 // Custom application errors
-export class ConnectionError extends LDAPError { }
-export class AbandonedError extends LDAPError { }
-export class TimeoutError extends LDAPError { }
+export class ConnectionError extends LDAPErrorExtend { }
+export class AbandonedError extends LDAPErrorExtend { }
+export class TimeoutError extends LDAPErrorExtend { }
